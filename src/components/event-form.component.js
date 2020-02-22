@@ -39,11 +39,12 @@ export default class EventForm extends Component {
         validated: true
       });
     } else {
-      const formData = { ...this.state.formData };
-      console.log(formData);
       axios
-        .post("http://localhost:4000/event-application", formData)
-        .then(res => console.log(res.data));
+        .post("http://localhost:4000/event-application", this.state.formData)
+        .then(() =>
+          this.props.showAlert("success", "Your application was submitted!")
+        )
+        .catch(e => this.props.showAlert("danger", `Failure! ${e.message}`));
       this.setState({
         validated: false,
         formData: this._initialFormData
