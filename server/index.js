@@ -35,9 +35,11 @@ app.listen(port, () => {
   console.log("Connected to port " + port);
 });
 
+app.use(function(req, res, next) {
+    return res.status(404).send({ message: 'Route'+req.url+' Not found.' });
+});
+
 app.use(function(err, req, res, next) {
-  console.log(res);
-  console.error(err.message);
   if (!err.statusCode) err.statusCode = 500;
-  res.status(err.statusCode).send(err.message);
+  res.status(err.statusCode).send({message: err.message});
 });

@@ -44,7 +44,17 @@ export default class EventApplicationForm extends Component {
         .then(() =>
           this.props.showAlert("success", "Your application was submitted!")
         )
-        .catch(e => this.props.showAlert("danger", `Failure! ${e.message}`))
+        .catch(e => {
+          console.log(e.response);
+          this.props.showAlert(
+            "danger",
+            `Failure! ${e}. ${
+              e.response.data.message
+                ? `Server responded with message: ${e.response.data.message} `
+                : ""
+            }`
+          );
+        })
         .finally(() =>
           this.setState({
             validated: false,

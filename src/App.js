@@ -9,7 +9,7 @@ import Alert from "react-bootstrap/Alert";
 function App({ state }) {
   return (
     <Container id="app-container">
-      <Row className="h-100 mt-5 align-items-center flex-column">
+      <Row className="h-100 pt-5 align-items-center flex-column">
         {state.show ? (
           <Alert
             variant={state.variant}
