@@ -1,7 +1,7 @@
 import React from "react";
 import "bootstrap/dist/css/bootstrap.css";
 import "./App.css";
-import EventForm from "./components/event-form.component";
+import EventApplicationForm from "./components/event-application-form.component";
 import Container from "react-bootstrap/Container";
 import Row from "react-bootstrap/Row";
 import Alert from "react-bootstrap/Alert";
@@ -9,7 +9,7 @@ import Alert from "react-bootstrap/Alert";
 function App({ state }) {
   return (
     <Container id="app-container">
-      <Row className="h-100 justify-content-center align-items-center flex-column">
+      <Row className="h-100 mt-5 align-items-center flex-column">
         {state.show ? (
           <Alert
             variant={state.variant}
@@ -20,7 +20,7 @@ function App({ state }) {
             {state.message}
           </Alert>
         ) : null}
-        <EventForm showAlert={state.showAlert}></EventForm>
+        <EventApplicationForm showAlert={state.showAlert} />
       </Row>
     </Container>
   );
