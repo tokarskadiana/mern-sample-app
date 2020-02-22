@@ -1,4 +1,4 @@
-import React, { Component } from "react";
+import React from "react";
 import Form from "react-bootstrap/Form";
 
 const formFieldsConfig = {
@@ -25,22 +25,20 @@ const formFieldsConfig = {
   }
 };
 
-export default class FormField extends Component {
-  render() {
-    const config = formFieldsConfig[this.props.name];
-    return (
-      <Form.Group controlId={this.props.name}>
-        <Form.Label>{config.label}</Form.Label>
-        <Form.Control
-          name={this.props.name}
-          type={config.type}
-          placeholder={config.placeholder}
-          required
-          pattern={config.pattern}
-          value={this.props.value}
-          onChange={this.props.handleChange}
-        />
-      </Form.Group>
-    );
-  }
+export default function FormField({ name, value, handleChange }) {
+  const config = formFieldsConfig[name];
+  return (
+    <Form.Group controlId={name}>
+      <Form.Label>{config.label}</Form.Label>
+      <Form.Control
+        name={name}
+        type={config.type}
+        placeholder={config.placeholder}
+        required
+        pattern={config.pattern}
+        value={value}
+        onChange={handleChange}
+      />
+    </Form.Group>
+  );
 }

@@ -8,12 +8,11 @@ import Alert from "react-bootstrap/Alert";
 
 function App({ state }) {
   return (
-    <Container id="app-container">
+    <Container>
       <Row className="h-100 pt-5 align-items-center flex-column">
         {state.show ? (
           <Alert
             variant={state.variant}
-            className="w-50"
             onClose={state.hideAlert}
             dismissible
           >

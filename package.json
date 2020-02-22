@@ -16,6 +16,7 @@
     "redux": "^4.0.5"
   },
   "scripts": {
+    "install:all": "(cd server && npm install) & npm install",
     "start": "concurrently -p \"[{name}]\" -k  -n \"express,react\" -c \"bgBlue.bold,bgGreen.bold\" \"npm:express\" \"npm:react\"",
     "react": "react-scripts start",
     "express": "nodemon ./server/index.js",
