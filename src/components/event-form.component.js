@@ -7,7 +7,7 @@ export default class EventForm extends Component {
         firstName: "",
         lastName: "",
         email: "",
-        eventDate: "",
+        date: "",
     };
 
     constructor(props) {
@@ -82,7 +82,7 @@ export default class EventForm extends Component {
                             name="email"
                             type="email"
                             placeholder="example@email.com"
-                            pattern="\b[\w\.-]+@[\w\.-]+\.\w{2,4}\b"
+                            pattern="\b[\w.-]+@[\w.-]+\.\w{2,4}\b"
                             required
                             value={this.state.formData.email}
                             onChange={this.handleChange.bind(this)}
@@ -92,10 +92,10 @@ export default class EventForm extends Component {
                     <Form.Group controlId="EventDate">
                         <Form.Label>Event date</Form.Label>
                         <Form.Control
-                            name="eventDate"
+                            name="date"
                             type="date"
                             required
-                            value={this.state.formData.eventDate}
+                            value={this.state.formData.date}
                             onChange={this.handleChange.bind(this)}
                         />
                     </Form.Group>
