@@ -31,7 +31,8 @@ app.listen(port, () => {
     console.log('Connected to port ' + port)
 });
 
-app.use(function (err, req, res) {
+app.use(function (err, req, res, next) {
+    console.log(res);
     console.error(err.message);
     if (!err.statusCode) err.statusCode = 500;
     res.status(err.statusCode).send(err.message);

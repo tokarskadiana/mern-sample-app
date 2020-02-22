@@ -1,5 +1,4 @@
-let mongoose = require('mongoose'),
-    express = require('express'),
+let express = require('express'),
     router = express.Router();
 
 let eventApplicationSchema = require('../models/event-application');
